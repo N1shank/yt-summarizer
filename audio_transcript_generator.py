@@ -1,5 +1,10 @@
 '''
+Transcription of Audio in a Youtube  Video
 
+Input : Youtube URL
+Output : Text of the youtube audio 
+Note : Audio file is limited to 25MB as per OpenAI whisper.
+       Will update the code with parallel processing to handle larger input youtube videos in the future.  
 '''
 
 
@@ -57,7 +62,7 @@ def main():
         # Delete the original audio file
         os.remove(audio_path)
         
-        print(transcript.text)
+        print(transcript)
 
 
 
