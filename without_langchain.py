@@ -12,7 +12,7 @@ from urllib.parse import urlparse, parse_qs
 
 
 # Transcripe MP3 Audio function
-def transscribe_audio(file_path):
+def transcribe_audio(file_path):
     file_size = os.path.getsize(file_path)
     file_size_in_mb = file_size / (1024 * 1024)
     if file_size_in_mb < 25:
@@ -53,7 +53,7 @@ def main():
         audio_path = f"{temp_dir}/{video_id}.mp3"
 
         # Transscripe the MP3 audio to text
-        transcript = transscribe_audio(audio_path)
+        transcript = transcribe_audio(audio_path)
         
         # Delete the original audio file
         os.remove(audio_path)
