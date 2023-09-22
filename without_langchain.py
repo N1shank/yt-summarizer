@@ -7,11 +7,7 @@ from moviepy.editor import *
 from pytube import YouTube
 from urllib.parse import urlparse, parse_qs
 
-from langchain.embeddings.openai import OpenAIEmbeddings
-from langchain.text_splitter import CharacterTextSplitter
-from langchain.vectorstores.faiss import FAISS
-from langchain.chains import RetrievalQAWithSourcesChain
-from langchain import OpenAI
+
 
 
 
