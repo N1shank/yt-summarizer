@@ -1,6 +1,6 @@
 import os 
 import openai
-import faiss
+
 import tempfile
 
 from moviepy.editor import *
