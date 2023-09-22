@@ -60,29 +60,6 @@ def main():
         
         print(transcript.text)
 
-    # Splitting the text
-    textsplitter = CharacterTextSplitter(chunk_size=512, chunk_overlap=0)
-
-    texts = textsplitter.split_text(transcript.text)
-
-    store = FAISS.from_texts(
-        texts, OpenAIEmbeddings(), metadatas=[{"source": f"Text chunk {i} of {len(texts)}"} for i in range(len(texts))]
-    )
-
-    faiss.write_index(store.index, "docs.faiss")
-
-    llm = OpenAI(temperature=0)
-    chain = RetrievalQAWithSourcesChain.from_chain_type(
-        llm=llm, chain_type="stuff", retriever=store.as_retriever()
-    )
-
-    # Enter question / answer loop
-    while True:
-        question = input("Question: ")
-        answer = chain({"question": question}, return_only_outputs=True)
-        print("Answer: ", answer["answer"])
-        print("Sources: ", answer["sources"])
-        print("\n")
 
 
 if __name__ == "__main__":
