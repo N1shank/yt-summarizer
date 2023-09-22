@@ -16,8 +16,6 @@ from langchain.chains import RetrievalQAWithSourcesChain
 from langchain import OpenAI
 
 
-# os.environ["OPENAI_API_KEY"] = ""
-
 # Transcripe MP3 Audio function
 def transscribe_audio(file_path):
     file_size = os.path.getsize(file_path)
@@ -92,6 +90,6 @@ def main():
         print("\n")
 
 
-## execute main
+
 if __name__ == "__main__":
     main()
