@@ -51,7 +51,7 @@ def transcribe_audio(file_path):
     file_size_in_mb = file_size / (1024 * 1024)
     if file_size_in_mb < 25:
         with open(file_path, "rb") as audio_file:
-            transcript = openai.Audio.transcribe("whisper-1", audio_file, response_format = "srt")
+            transcript = openai.Audio.transcribe("whisper-1", audio_file, response_format = "text")
 
         return transcript
     else:
