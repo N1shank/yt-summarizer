@@ -92,7 +92,7 @@ def main():
         # Delete the original audio file
         os.remove(audio_path)
         
-        print(transcript)
+        #print(transcript)
 
         response = gpt_response(transcript)
 
@@ -107,7 +107,7 @@ def gpt_response(transcript):
 
     response = openai.ChatCompletion.create(model="gpt-4", messages=[{"role": "system", "content": prompt}, {"role": "user", "content": "This is an example of an output:\nSubtopics - \nTopic : <Topic 1> - Timestamp : <HH:MM:SS --> HH:MM:SS> - <One liner of the sub topic>\nTopic : <Topic 2> - Timestamp : <HH:MM:SS --> HH:MM:SS> - <One liner of the next sub topic> , Now give your output for the given transcript."}])
 
-    summary_and_timestamps = response#.choices[0].text.strip()
+    summary_and_timestamps = response['choices'][0]['message']['content']
 
     return summary_and_timestamps
 
