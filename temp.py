@@ -17,23 +17,15 @@ You are a Youtube summarizer and time stamp generator tool, which helps in gener
 time-stamps from the given transcript.The transcript contains the audio of the youtube video in text format. 
 You are supposed to give out sub topics and a summary of the whole video as precise as possible  with time stamps
 
-You can use this transcript which contains content of the youtube video in this format.
-"Format : 
-chunk_id
-HH:MM:SS,MIL --> HH:MM:SS,MIL
-Text transcription of the audio chunk from above time stamp"
-
-You can refer to this one example :
-"Example :
-1
-00:00:00,000 --> 00:00:03,520
-My name is Jack and I'm the founder and CEO of Workplete."
-
 Here you can see the trancript format comes in multiple chunks with specified timestamps and the text data of the youtube video in that particular timestamp.
+
+
+
 
 Now you need to understand the content/ text information of all the chunks in the transcript and provide a precise summary of the youtube video in text format.
 You should also provide sub topics with appropriate one liner summary and timestamps using transcript chunk's timestamps.
-You are expected to give output in this format.
+You are expected to give output in this format. Give the output in the below format
+
 Output :
 Summary - 
 Subtopic - Topic 1 - HH:MM:SS --> HH:MM:SS - One liner of the sub topic
@@ -84,7 +76,7 @@ def main():
         audio_clip.write_audiofile(os.path.join(temp_dir, f"{video_id}.mp3"))
 
         # Keep the path of the audio file
-        audio_path = f"{temp_dir}/{video_id}.mp3"
+        audio_path = f"{temp_dir}/{video_id}.mp3" 
 
         # Transscripe the MP3 audio to text
         transcript = transcribe_audio(audio_path)
@@ -92,7 +84,7 @@ def main():
         # Delete the original audio file
         os.remove(audio_path)
         
-        #print(transcript)
+        print(transcript)
 
         response = gpt_response(transcript)
 
